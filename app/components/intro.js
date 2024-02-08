@@ -7,16 +7,16 @@ export default function Intro() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            console.log('This will run after 1 second!')
+            console.log('This will run after 2 seconds!')
             setIntroVisible(false);
-        }, 1000);
+        }, 2000);
         return () => clearTimeout(timer);
     }, []);
 
     return (
-        <div className={`intro-page ${introVisible ? '' : ''} bg-slate-900 transition-opacity-100 duration-10`}>
-      <h1 className="text-4xl text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">Hello</h1>
-    </div>
+        <div className={`fixed inset-0 flex justify-center items-center z-50 transition-opacity duration-1000 bg-black ${introVisible ? '' : 'opacity-0 pointer-events-none'}`}>
+            <h1 className={`text-4xl text-white transition-transform duration-1000 ${introVisible ? 'translate-x-0 translate-y-0' : '-translate-y-full'}`}>Hello</h1>
+        </div>
   
     );
     }
