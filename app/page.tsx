@@ -15,9 +15,6 @@ export default function Page() {
         <Proficiency />
         <Projects />
       </div>
-      <div className="h-20 w-full absolute bottom-0 z-10">
-        <div className="h-full w-full bg-gradient-to-t from-slate-950 to-transparent"></div>
-      </div>
     </div>
   )
 }
