@@ -6,6 +6,7 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { DiDotnet } from "react-icons/di";
 import { SiCsharp, SiXaml } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
+import { PiVideoFill } from "react-icons/pi";
 import './styles.css';
 
 
@@ -34,6 +35,7 @@ const projectList = [
     gifSrc: "https://via.placeholder.com/2000",
     description: "Description of Project 1 lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     githubLink: "https://github.com/project1",
+    videoLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     icons: ["FaCss3Alt", "FaGithub"]
   },
   {
@@ -42,6 +44,7 @@ const projectList = [
     gifSrc: "https://via.placeholder.com/2000",
     description: "Description of Project 2",
     githubLink: "https://github.com/project2",
+    videoLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     icons: ["FaGithub"]
   },
 ];
@@ -73,6 +76,11 @@ const Project = ({ project, index }) => {
               <div className='px-2'/>
               {project.githubLink}
             </div>
+            <div className='flex flex-row'>
+              <PiVideoFill size={40}/>
+              <div className='px-2'/>
+              {project.videoLink}
+              </div>
           </div>
         </div>
     </div>
