@@ -7,9 +7,9 @@ export default function Intro() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            console.log('This will run after 2 seconds!')
+            console.log('This will run after a second!')
             setIntroVisible(false);
-        }, 2000);
+        }, 1000);
         return () => clearTimeout(timer);
     }, []);
 
