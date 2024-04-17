@@ -63,7 +63,7 @@ const Project = ({ project, index }) => {
 
   return (
     <div className='flex flex-col items-center mx-auto max-w-[75%] p-20 hide'>
-        <h2 className='p-6' style={{ fontSize: "calc(0.6em + 1vw)" }}>
+        <h2 className='p-6 font-bold' style={{ fontSize: "calc(0.6em + 1vw)" }}>
           {project.projectName}
         </h2>
         <div className='flex flex-row w-full justify-center'>
@@ -76,7 +76,7 @@ const Project = ({ project, index }) => {
             />
           </div>
           <div className={`w-50vw w-1/2 px-4 ${descriptionPositionClass}`} style={{ fontSize: "calc(0.2em + 1vw)" }}>
-            <p className='pb-4'>
+            <p className='pb-4 text-slate-400'>
               {project.description}
             </p>
             <div>
