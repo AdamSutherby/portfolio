@@ -31,7 +31,7 @@ const iconComponents = {
 const projectList = [
   {
     projectName: "Scheduling Application",
-    imgSrc: "https://via.placeholder.com/1000",
+    imgSrc: "/images/project1.png",
     gifSrc: "https://via.placeholder.com/2000", // Placeholder for gif
     description: "A basic scheduler prototype developed using C# and Maui Blazor. This lightweight yet powerful tool simplifies scheduling tasks and appointments with ease. Seamlessly integrating Maui Blazor's capabilities, our prototype offers a user-friendly interface and efficient performance. Experience the convenience of managing your schedule effortlessly with our innovative solution.",
     githubLink: "https://github.com/AdamSutherby/Group13FinalProject",
@@ -40,8 +40,8 @@ const projectList = [
     projectName: "ARIS Capstone Project",
     imgSrc: "/images/project2.png",
     gifSrc: "https://via.placeholder.com/2000",
-    description: "Our in-house software digitalizes information from water samples and their chain of custody, simplifying the process of tracking and managing sample data. Designed for internal use, this solution enhances our efficiency in managing environmental data, ensuring accurate records and compliance with industry standards.",
-    githubLink: "https://github.com/project2",
+    description: "Our in-house software digitalizes information from water samples and their chain of custody, simplifying the process of tracking and managing sample data. Designed for internal use, this solution enhances our efficiency in managing environmental data, ensuring accurate records and compliance with industry standards. The Github link below is a placeholder as the project is under strict NDA.",
+    githubLink: "https://en.wikipedia.org/wiki/Non-disclosure_agreement",
   },
   {
     projectName: "Portfolio Website",
