@@ -19,17 +19,17 @@ export default function Navbar() {
       <div>
         <ul className="flex flex-row justify-center items-center flex-grow">
           <li className="px-4">
-            <a href="https://www.linkedin.com/in/adam-sutherby-86774ab9/">
+            <a href="https://www.linkedin.com/in/adam-sutherby-86774ab9/" className="inline-block transition-transform transform-gpu hover:scale-110">
               <FaLinkedin size={30}/>
             </a>
           </li>
           <li className="px-4">
-            <a href="https://github.com/AdamSutherby">
+            <a href="https://github.com/AdamSutherby" className="inline-block transition-transform transform-gpu hover:scale-110">
               <FaGithub size={30}/>
             </a>
           </li>
           <li className="px-4">
-            <a href="mailto:adamsutherby@gmail.com">
+            <a href="mailto:adamsutherby@gmail.com" className="inline-block transition-transform transform-gpu hover:scale-110">
               <MdEmail size={30}/>
             </a>
           </li>

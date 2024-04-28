@@ -7,7 +7,6 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { DiDotnet } from "react-icons/di";
 import { SiCsharp, SiXaml } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
-import { PiVideoFill } from "react-icons/pi";
 import './styles.css';
 
 
@@ -31,28 +30,25 @@ const iconComponents = {
 
 const projectList = [
   {
-    projectName: "Project 1",
+    projectName: "Scheduling Application",
     imgSrc: "https://via.placeholder.com/1000",
-    gifSrc: "https://via.placeholder.com/2000",
-    description: "Description of Project 1 lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    githubLink: "https://github.com/project1",
-    videoLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    gifSrc: "https://via.placeholder.com/2000", // Placeholder for gif
+    description: "A basic scheduler prototype developed using C# and Maui Blazor. This lightweight yet powerful tool simplifies scheduling tasks and appointments with ease. Seamlessly integrating Maui Blazor's capabilities, our prototype offers a user-friendly interface and efficient performance. Experience the convenience of managing your schedule effortlessly with our innovative solution.",
+    githubLink: "https://github.com/AdamSutherby/Group13FinalProject",
   },
   {
-    projectName: "Project 2",
+    projectName: "ARIS Capstone Project",
     imgSrc: "https://via.placeholder.com/1000",
     gifSrc: "https://via.placeholder.com/2000",
-    description: "Description of Project 2",
+    description: "Our in-house software digitalizes information from water samples and their chain of custody, simplifying the process of tracking and managing sample data. Designed for internal use, this solution enhances our efficiency in managing environmental data, ensuring accurate records and compliance with industry standards.",
     githubLink: "https://github.com/project2",
-    videoLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
   },
   {
-    projectName: "Project 3",
-    imgSrc: "https://via.placeholder.com/1000",
+    projectName: "Portfolio Website",
+    imgSrc: "/images/project3.png",
     gifSrc: "https://via.placeholder.com/2000",
-    description: "Description of Project 3",
-    githubLink: "https://github.com/project2",
-    videoLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    description: "Explore my software developer portfolio project built using React Native and Next.js, powered by Tailwind CSS for sleek styling. Experience seamless integration across mobile and web platforms, highlighting my proficiency in modern development tools. If you didn't notice, this is the project you're currently viewing!",
+    githubLink: "https://github.com/AdamSutherby/portfolio",
   },
 ];
 
@@ -68,7 +64,7 @@ const Project = ({ project, index }) => {
         </h2>
         <div className='flex flex-row w-full justify-center'>
           <div className={`w-50vw w-1/2 px-4 ${imagePositionClass}`}>
-            <img src={isHovered ? project.gifSrc : project.imgSrc}
+            <img src={isHovered ? project.imgSrc : project.imgSrc}
                  onMouseEnter={() => setIsHovered(true)}
                  onMouseLeave={() => setIsHovered(false)}
                  style={{ maxWidth: "100%" }}
@@ -88,13 +84,6 @@ const Project = ({ project, index }) => {
               </div>
               </a>
             </div>
-            <a href={project.videoLink}>
-            <div className='flex flex-row pb-4'>
-              <PiVideoFill size={40}/>
-              <div className='px-2'/>
-              Video Description
-              </div>
-              </a>
           </div>
         </div>
     </div>
