@@ -7,7 +7,7 @@ import { TbBrandNextjs } from "react-icons/tb";
 export default function Proficiency() {
     return (
         <div className="pb-10">
-            <ul className="flex flex-row justify-center items-center mt-20">
+            <ul className="flex flex-row justify-center items-center mt-20 text-white">
                 <li className="p-4">
             <FaReact size={40}/>
             </li>
