@@ -7,6 +7,7 @@ import Proficiency from './components/proficiency.js'
 import About from './components/about.js'
 import Projects from './components/projects.js'
 import Contact from './components/contact.js'
+import SpreadsheetLayout from './components/spreadsheet-layout.js'
 
 export default function Page() {
   const scrollToRef = (ref: React.RefObject<HTMLElement>) => {
@@ -32,6 +33,7 @@ export default function Page() {
         <div ref={aboutRef as React.RefObject<HTMLDivElement>}><About /></div>
         <Proficiency />
         <div ref={projectsRef as React.RefObject<HTMLDivElement>}><Projects /></div>
+        <SpreadsheetLayout />
         <div ref={contactRef as React.RefObject<HTMLDivElement>}><Contact /></div>
       </div>
     </div>

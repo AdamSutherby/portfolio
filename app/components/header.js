@@ -5,15 +5,15 @@ export default function Header({ scrollToAbout, scrollToProjects, scrollToContac
   return (
     <nav className="bg-slate-950 p-3 fixed top-0 w-full z-30 font font-mono font-extrabold text-lg text-shadow-outline border-b border-slate-800">
       <div className="flex container mx-auto flex-row justify-between items-center">
-        <div className="flex-none">
+        <div className="flex-none text-white">
           <h1>Adam Sutherby</h1>
         </div>
         <ul className="flex flex-row justify-center items-center flex-grow">
-          <li className="px-4 hover:scale-110" onClick={scrollToAbout}>About</li>
+          <li className="px-4 hover:scale-110 text-white" onClick={scrollToAbout}>About</li>
           <li className="px-4">|</li>
-          <li className="px-4 hover:scale-110" onClick={scrollToProjects}>Projects</li>
+          <li className="px-4 hover:scale-110 text-white" onClick={scrollToProjects}>Projects</li>
           <li className="px-4">|</li>
-          <li className="px-4 hover:scale-110" onClick={scrollToContact}>Contact</li>
+          <li className="px-4 hover:scale-110 text-white" onClick={scrollToContact}>Contact</li>
         </ul>
         <div>
           <ul className="flex flex-row justify-center items-center flex-grow">
