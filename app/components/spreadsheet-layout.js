@@ -12,7 +12,8 @@ const SpreadsheetLayout = () => {
         }
       },
       {
-        threshold: 0.1
+        threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
       }
     );
 
@@ -31,12 +32,11 @@ const SpreadsheetLayout = () => {
   return (
     <div 
       id="spreadsheet-section"
-      className="w-[80%] mx-auto my-8"
-      style={{
-        transform: `translateX(${isVisible ? '0' : '-100%'})`,
-        opacity: isVisible ? 1 : 0,
-        transition: 'transform 1000ms cubic-bezier(0.4, 0, 0.2, 1), opacity 1000ms ease-out'
-      }}
+      className={`w-[80%] mx-auto my-8 transition-all duration-1000 ease-out ${
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-16'
+      }`}
     >
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
         {/* Spreadsheet takes up 3 columns */}
