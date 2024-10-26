@@ -95,23 +95,35 @@ const Contact = () => {
         </div>
       </form>
       <div>
-        <ul className="flex flex-row justify-center items-center flex-grow mb-2 text-white">
-          <li className="px-10">
-            <a href="https://www.linkedin.com/in/adam-sutherby-86774ab9/" className="inline-block transition-transform transform-gpu hover:scale-110">
-              <FaLinkedin size={60}/>
-            </a>
-          </li>
-          <li className="px-10">
-            <a href="https://github.com/AdamSutherby" className="inline-block transition-transform transform-gpu hover:scale-110">
-              <FaGithub size={60}/>
-            </a>
-          </li>
-          <li className="px-10">
-            <a href="mailto:adamsutherby@gmail.com" className="inline-block transition-transform transform-gpu hover:scale-110">
-              <MdEmail size={60}/>
-            </a>
-          </li>
-        </ul>
+      <ul className="flex flex-row justify-center items-center flex-wrap gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+        <li>
+          <a
+            href="https://www.linkedin.com/in/adam-sutherby-86774ab9/"
+            className="inline-block text-white transition-transform transform-gpu hover:scale-110"
+            aria-label="LinkedIn Profile"
+          >
+            <FaLinkedin className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/AdamSutherby"
+            className="inline-block text-white transition-transform transform-gpu hover:scale-110"
+            aria-label="GitHub Profile"
+          >
+            <FaGithub className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:adamsutherby@gmail.com"
+            className="inline-block text-white transition-transform transform-gpu hover:scale-110"
+            aria-label="Email"
+          >
+            <MdEmail className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14" />
+          </a>
+        </li>
+      </ul>
       </div>
     </div>
   );
