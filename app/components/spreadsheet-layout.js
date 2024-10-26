@@ -1,9 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SpreadsheetDemo from './spreadsheet';
 
 const SpreadsheetLayout = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    const element = document.getElementById('spreadsheet-section');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
+
   return (
-    <div className="w-[80%] mx-auto my-8">
+    <div 
+      id="spreadsheet-section"
+      className="w-[80%] mx-auto my-8"
+      style={{
+        transform: `translateX(${isVisible ? '0' : '-100%'})`,
+        opacity: isVisible ? 1 : 0,
+        transition: 'transform 1000ms cubic-bezier(0.4, 0, 0.2, 1), opacity 1000ms ease-out'
+      }}
+    >
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
         {/* Spreadsheet takes up 3 columns */}
         <div className="lg:col-span-3">

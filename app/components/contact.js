@@ -95,7 +95,7 @@ const Contact = () => {
         </div>
       </form>
       <div>
-        <ul className="flex flex-row justify-center items-center flex-grow mb-2">
+        <ul className="flex flex-row justify-center items-center flex-grow mb-2 text-white">
           <li className="px-10">
             <a href="https://www.linkedin.com/in/adam-sutherby-86774ab9/" className="inline-block transition-transform transform-gpu hover:scale-110">
               <FaLinkedin size={60}/>

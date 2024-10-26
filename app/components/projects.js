@@ -28,7 +28,7 @@ const projectList = [
   {
     projectName: "Echoes of Wisdom 100% Helper",
     imgSrc: "/images/project1.png",
-    gifSrc: "https://via.placeholder.com/2000", // Placeholder for gif
+    gifSrc: "https://via.placeholder.com/2000",
     description: "This web app is a comprehensive 100% completion tool designed to enhance the user experience for The Legend of Zelda: Echoes of Wisdom. It includes a dynamic checklist for tracking both quests and collectible Echoes, giving players a clear path to full game completion. Additionally, it features an in-depth Smoothie Recipe Calculator that assists players in crafting in-game smoothies. By accounting for each player's available ingredients, the calculator suggests recipes that help users check off all recipes in the game, maximizing resource efficiency and guiding users towards their 100% completion goal",
     githubLink: "https://github.com/AdamSutherby/EowHelper",
     projectLink: "https://eow-hundo-helper.vercel.app",
@@ -52,38 +52,74 @@ const projectList = [
 
 const Project = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false)
-  const imagePositionClass = index % 2 === 0 ? 'order-1' : 'order-2'
-  const descriptionPositionClass = index % 2 === 0 ? 'order-2' : 'order-1'
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      {
+        threshold: 0.1
+      }
+    )
+
+    const element = document.getElementById(`project-${index}`)
+    if (element) {
+      observer.observe(element)
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element)
+      }
+    }
+  }, [index])
+
+  // Determine the starting position based on index (even/odd)
+  const startPosition = index % 2 === 0 ? '100%' : '-100%'
 
   return (
-    <div className='flex flex-col items-center mx-auto max-w-[75%] p-20 hide text-white'>
-      <h2 className='p-6 font-bold' style={{ fontSize: "calc(0.6em + 1vw)" }}>
+    <div 
+      id={`project-${index}`}
+      style={{
+        transform: `translateX(${isVisible ? '0' : startPosition})`,
+        opacity: isVisible ? 1 : 0,
+        transition: 'transform 1000ms cubic-bezier(0.4, 0, 0.2, 1), opacity 1000ms ease-out'
+      }}
+      className='flex flex-col items-center mx-auto w-full max-w-7xl p-4 md:p-8 lg:p-16 xl:p-20 text-white'
+    >
+      <h2 className='text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-8'>
         {project.projectName}
       </h2>
-      <div className='flex flex-row w-full justify-center'>
-        <div className={`w-50vw w-1/2 px-4 ${imagePositionClass}`}>
+      <div className='flex flex-col md:flex-row w-full justify-center items-center md:items-start gap-6 md:gap-12 lg:gap-16'>
+        <div className='w-full md:w-3/5 lg:w-2/3 relative overflow-hidden rounded-lg aspect-video'>
+          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50 z-10"></div>
           <img 
-            src={isHovered ? project.imgSrc : project.imgSrc}
+            src={isHovered ? project.gifSrc : project.imgSrc}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            style={{ maxWidth: "100%" }}
-            className='border-4 rounded-lg'
+            className='w-full h-full object-cover transition-opacity duration-300'
             alt={project.projectName}
           />
         </div>
-        <div className={`w-50vw w-1/2 px-4 ${descriptionPositionClass}`} style={{ fontSize: "calc(0.2em + 1vw)" }}>
-          <p className='pb-4 text-slate-400'>
+        <div className='w-full md:w-2/5 lg:w-1/3 flex flex-col justify-between'>
+          <p className='text-sm md:text-base lg:text-lg xl:text-xl text-slate-400 mb-6'>
             {project.description}
           </p>
           <div className='flex flex-col gap-4'>
-            <Link href={project.githubLink} target="_blank" rel="noopener noreferrer" className='flex items-center'>
-              <FaGithub size={40} />
-              <span className='px-2'>Github repo</span>
+            <Link href={project.githubLink} target="_blank" rel="noopener noreferrer" 
+                  className='flex items-center text-sm md:text-base lg:text-lg hover:text-blue-400 transition-colors duration-300'>
+              <FaGithub size={24} className="mr-2" />
+              <span>Github repo</span>
             </Link>
             {project.projectLink && (
-              <Link href={project.projectLink} target="_blank" rel="noopener noreferrer" className='flex items-center'>
-                <FaExternalLinkAlt size={35} />
-                <span className='px-2'>View Project</span>
+              <Link href={project.projectLink} target="_blank" rel="noopener noreferrer" 
+                    className='flex items-center text-sm md:text-base lg:text-lg hover:text-blue-400 transition-colors duration-300'>
+                <FaExternalLinkAlt size={20} className="mr-2" />
+                <span>View Project</span>
               </Link>
             )}
           </div>
@@ -94,30 +130,8 @@ const Project = ({ project, index }) => {
 }
 
 const Projects = () => {
-  useEffect(() => {
-    const testElement = document.querySelectorAll('.hide')
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          console.log('Element is in view!')
-          entry.target.classList.add('animate-fade-in')
-        }
-      })
-    })
-
-    testElement.forEach((element) => {
-      observer.observe(element)
-    })
-
-    return () => {
-      testElement.forEach((element) => {
-        observer.unobserve(element)
-      })
-    }
-  }, [])
-
   return (
-    <div className="flex flex-col items-center mt-12 font-mono">
+    <div className="flex flex-col items-center mt-12 font-mono space-y-16 md:space-y-24 lg:space-y-32 w-full">
       {projectList.map((project, index) => (
         <Project key={index} project={project} index={index} />
       ))}
