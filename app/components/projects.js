@@ -62,7 +62,8 @@ const Project = ({ project, index }) => {
         }
       },
       {
-        threshold: 0.1
+        threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
       }
     )
 
@@ -78,18 +79,14 @@ const Project = ({ project, index }) => {
     }
   }, [index])
 
-  // Determine the starting position based on index (even/odd)
-  const startPosition = index % 2 === 0 ? '100%' : '-100%'
-
   return (
     <div 
       id={`project-${index}`}
-      style={{
-        transform: `translateX(${isVisible ? '0' : startPosition})`,
-        opacity: isVisible ? 1 : 0,
-        transition: 'transform 1000ms cubic-bezier(0.4, 0, 0.2, 1), opacity 1000ms ease-out'
-      }}
-      className='flex flex-col items-center mx-auto w-full max-w-7xl p-4 md:p-8 lg:p-16 xl:p-20 text-white'
+      className={`flex flex-col items-center mx-auto w-full max-w-7xl p-4 md:p-8 lg:p-16 xl:p-20 text-white transition-all duration-1000 ease-out ${
+        isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-16'
+      }`}
     >
       <h2 className='text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-8'>
         {project.projectName}
@@ -131,7 +128,7 @@ const Project = ({ project, index }) => {
 
 const Projects = () => {
   return (
-    <div className="flex flex-col items-center mt-12 font-mono space-y-16 md:space-y-24 lg:space-y-32 w-full">
+    <div className="flex flex-col items-center mt-6 font-mono space-y-16 md:space-y-24 lg:space-y-32 w-full">
       {projectList.map((project, index) => (
         <Project key={index} project={project} index={index} />
       ))}
