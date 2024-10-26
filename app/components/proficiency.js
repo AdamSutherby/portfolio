@@ -53,6 +53,13 @@ export default function Proficiency() {
             <TechIcon key={`third-${index}`} Icon={Icon} />
           ))}
         </div>
+
+        {/* Fourth set of icons (for extra smoothness) */}
+        <div className="flex shrink-0">
+          {IconList.map((Icon, index) => (
+            <TechIcon key={`fourth-${index}`} Icon={Icon} />
+          ))}
+        </div>
       </div>
 
       <style jsx global>{`
